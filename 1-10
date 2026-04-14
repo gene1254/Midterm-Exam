@@ -22,11 +22,11 @@ public class StudentScoreSystem {
         int[] scores1 = {70, 80, 90};
         double sum1 = 0;
         for (int s : scores1) sum1 += s;
-        System.out.println("Average: " + (sum1 / scores1.length)); // 預期輸出: 80.0 [cite: 3]
+        System.out.println("Average: " + (sum1 / scores1.length));
 
         // 2. 尋找最大值 [cite: 4, 23]
         int[] arr2 = {1, 9, 3}; 
-        System.out.println(findMax(arr2)); // 預期結果: 9 [cite: 5]
+        System.out.println(findMax(arr2));
 
         // 3. 增加獎勵分數 [cite: 6, 24]
         int[] scores3 = {60, 70};
@@ -35,7 +35,7 @@ public class StudentScoreSystem {
 
         // 4. 建立並列印學生物件 [cite: 8, 26]
         Student tom = new Student("Tom", 85);
-        System.out.println(tom); // 預期輸出: Tom: 85 [cite: 9]
+        System.out.println(tom);
 
         // 5. 對學生進行加分 (Score Curve) [cite: 10, 27]
         Student tomBelow60 = new Student("Tom", 55);
@@ -75,10 +75,8 @@ public class StudentScoreSystem {
         for (int s : scores10) {
             if (s < min) min = s;
         }
-        System.out.println(min); // 預期輸出: 58 [cite: 21]
+        System.out.println(min);
     }
-
-    // --- 方法實作 (Methods) ---
 
     // 2. 尋找最大值方法 [cite: 23]
     public static int findMax(int[] arr) {
