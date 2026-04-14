@@ -1,0 +1,119 @@
+public class StudentScoreSystem {
+
+    // 4. 定義 Student 類別 
+    static class Student {
+        String name;
+        int score;
+
+        Student(String name, int score) {
+            this.name = name;
+            this.score = score;
+        }
+
+        // 讓輸出格式符合 "Tom: 85" [cite: 9, 26]
+        @Override
+        public String toString() {
+            return name + ": " + score;
+        }
+    }
+
+    public static void main(String[] args) {
+        // 1. 計算平均分數 [cite: 2, 22]
+        int[] scores1 = {70, 80, 90};
+        double sum1 = 0;
+        for (int s : scores1) sum1 += s;
+        System.out.println("Average: " + (sum1 / scores1.length)); // 預期輸出: 80.0 [cite: 3]
+
+        // 2. 尋找最大值 [cite: 4, 23]
+        int[] arr2 = {1, 9, 3}; 
+        System.out.println(findMax(arr2)); // 預期結果: 9 [cite: 5]
+
+        // 3. 增加獎勵分數 [cite: 6, 24]
+        int[] scores3 = {60, 70};
+        addBonus(scores3);
+        System.out.println("{" + scores3[0] + ", " + scores3[1] + "}"); // 預期結果: {65, 75} [cite: 7]
+
+        // 4. 建立並列印學生物件 [cite: 8, 26]
+        Student tom = new Student("Tom", 85);
+        System.out.println(tom); // 預期輸出: Tom: 85 [cite: 9]
+
+        // 5. 對學生進行加分 (Score Curve) [cite: 10, 27]
+        Student tomBelow60 = new Student("Tom", 55);
+        curve(tomBelow60);
+        System.out.println(tomBelow60); // 預期結果: Tom: 65 [cite: 11]
+
+        // 6. 統計及格人數 [cite: 12, 28]
+        int[] scores6 = {45, 60, 80, 59, 100};
+        int count = 0;
+        for (int s : scores6) {
+            if (s >= 60) count++;
+        }
+        System.out.println("Number of passing students: " + count); // 預期輸出: 3 [cite: 13]
+
+        // 7. 陣列總計 [cite: 14, 29]
+        int[] arr7 = {1, 2, 3, 4};
+        System.out.println(sum(arr7)); // 預期輸出: 10 [cite: 15]
+
+        // 8. 列印學生物件陣列 [cite: 16, 30]
+        Student[] students = {
+            new Student("Tom", 85),
+            new Student("Mary", 90),
+            new Student("John", 78)
+        };
+        for (Student s : students) {
+            System.out.println(s); // 預期輸出同資料內容 [cite: 17]
+        }
+
+        // 9. 更新學生分數 [cite: 18, 31]
+        Student tomUpdate = new Student("Tom", 85);
+        updateScore(tomUpdate, 95);
+        System.out.println(tomUpdate); // 預期輸出: Tom: 95 [cite: 19]
+
+        // 10. 尋找最小分數 [cite: 20, 32]
+        int[] scores10 = {70, 85, 62, 90, 58};
+        int min = scores10[0];
+        for (int s : scores10) {
+            if (s < min) min = s;
+        }
+        System.out.println(min); // 預期輸出: 58 [cite: 21]
+    }
+
+    // --- 方法實作 (Methods) ---
+
+    // 2. 尋找最大值方法 [cite: 23]
+    public static int findMax(int[] arr) {
+        int max = arr[0];
+        for (int val : arr) {
+            if (val > max) max = val;
+        }
+        return max;
+    }
+
+    // 3. 每個元素加 5 分 [cite: 24]
+    public static void addBonus(int[] scores) {
+        for (int i = 0; i < scores.length; i++) {
+            scores[i] += 5;
+        }
+    }
+
+    // 5. 低於 60 分加 10 分 [cite: 27]
+    public static void curve(Student s) {
+        if (s.score < 60) {
+            s.score += 10;
+        }
+    }
+
+    // 7. 計算總和方法 [cite: 29]
+    public static int sum(int[] arr) {
+        int total = 0;
+        for (int val : arr) {
+            total += val;
+        }
+        return total;
+    }
+
+    // 9. 更新學生物件的分數 [cite: 31]
+    public static void updateScore(Student s, int newScore) {
+        s.score = newScore;
+    }
+}
